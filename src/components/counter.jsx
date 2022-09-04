@@ -9,9 +9,9 @@ class Counter extends Component {
     render() { 
         return (
             <div>
-                <img src={this.state.img} alt="" />
+                <img src={this.state.img} />
                 <span>{this.countText()}</span>
-                <button>Increment</button>
+                <button className='btn btn-primary'>Increment</button>
             </div>
          );
     }
