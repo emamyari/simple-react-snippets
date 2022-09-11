@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count:100
-        ,img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Mjy28BAY3wLMhv_dzRJx-dTB1rDk8d6Tf8SQ6N86hCZHXXK4ywkQsMvHQyclEv5rdjA&usqp=CAU'
+        count:0
     } 
 
     render() { 
+        let myClass="badge m-2 badge-"
+        myClass=myClass+(this.state.count>0?'warning':'primary');
         return (
             <div>
                 <button className='btn btn-warning'>Decrement</button>
-                <span className="badge badge-warning m-2">{this.countText()}</span>
+                <span className={myClass}>{this.countText()}</span>
                 <button className='btn btn-success'>Increment</button>
                 <button className='btn btn-danger'>Delete</button>
             </div>
