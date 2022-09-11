@@ -5,7 +5,6 @@ class App extends Component {
   state = {  } 
   render() { 
     return (<div>     
-              <Menu></Menu>
              
               <Counter></Counter>
              </div>);
