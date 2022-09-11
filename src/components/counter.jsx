@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count:0
+        count:0,
+        names:['ali','reza','mohammad']
     } 
 
     render() { 
@@ -14,6 +15,7 @@ class Counter extends Component {
                 <span className={myClass}>{this.countText()}</span>
                 <button className='btn btn-success'>Increment</button>
                 <button className='btn btn-danger'>Delete</button>
+                {this.state.names.map(o =><li> {o}</li>)}
             </div>
          );
     }
