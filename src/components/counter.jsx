@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count:0,
-        names:['ali','reza','mohammad']
+        count:100,
+        names:['ali reza','reza','mohammad']
     } 
-
+    handleInc =() =>{
+        this.setState({count: this.state.count+1})
+    }
     render() { 
         let myClass="badge m-2 badge-"
         myClass=myClass+(this.state.count>0?'warning':'primary');
@@ -13,9 +15,9 @@ class Counter extends Component {
             <div>
                 <button className='btn btn-warning'>Decrement</button>
                 <span className={myClass}>{this.countText()}</span>
-                <button className='btn btn-success'>Increment</button>
+                <button onClick={this.handleInc} className='btn btn-success'>Increment</button>
                 <button className='btn btn-danger'>Delete</button>
-                {this.state.names.map(o =><li> {o}</li>)}
+                {/* {this.state.names.map(o =><li key={o}> {o}</li>)} */}
             </div>
          );
     }
