@@ -5,10 +5,10 @@ class Counter extends Component {
         count:0
     } 
     handleInc =() =>{
-        this.setState({count: this.state.count+1})
+        this.state.count<10? this.setState({count: this.state.count+1}) : this.setState({count: this.state.count})
     }
     handleDec =() =>{
-        this.setState({count: this.state.count-1})
+        this.state.count>0? this.setState({count: this.state.count-1}) : this.setState({count: this.state.count})
     }
     
     render() { 
