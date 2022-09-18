@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count:100
-        ,img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Mjy28BAY3wLMhv_dzRJx-dTB1rDk8d6Tf8SQ6N86hCZHXXK4ywkQsMvHQyclEv5rdjA&usqp=CAU'
+        count:0
     } 
-
+    handleInc =() =>{
+        this.setState({count: this.state.count+1})
+    }
+    handleDec =() =>{
+        this.setState({count: this.state.count-1})
+    }
+    
     render() { 
+        let myClass="badge m-2 badge-"
+        myClass=myClass+(this.state.count>0?'warning':'primary');
         return (
             <div>
-                <img src={this.state.img} />
-                <span>{this.countText()}</span>
-                <button className='btn btn-primary'>Increment</button>
+                <button onClick={this.handleDec} className='btn btn-warning'>Decrement</button>
+                <span className={myClass}>{this.countText()}</span>
+                <button onClick={this.handleInc} className='btn btn-success'>Increment</button>
+                <button className='btn btn-danger'>Delete</button>
+                {/* {this.state.names.map(o =><li key={o}> {o}</li>)} */}
             </div>
          );
     }
