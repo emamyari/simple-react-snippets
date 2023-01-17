@@ -8,6 +8,8 @@ class Counters extends Component {
                     {id:3,name:'TV',q:100},
                     {id:4,name:'adaptor',q:5},
                     {id:5,name:'laptop',q:2},
+                    {id:5,name:'watch',q:9},
+                    {id:5,name:'ipad',q:8},
                     ]
             }
     render() {
