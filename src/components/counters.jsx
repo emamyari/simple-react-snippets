@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import Counter from './counter';
 
-
 class Counters extends Component {
-    state = { counters:[
-        {id:1,value:2},
-        {id:2,value:2},
-        {id:3,value:2},
-        {id:4,value:2},
-    ] } 
-    render() { 
-        return (<div>
-           
-            {this.state.counters.map(c=><Counter></Counter>)}
-</div>
+    state = {
+            myList:[{id:1,name:'iphone',q:10},
+                    {id:2,name:'airPod',q:5},
+                    {id:3,name:'TV',q:100},
+                    {id:4,name:'adaptor',q:5},
+                    {id:5,name:'laptop',q:2},
+                    ]
+            }
+    render() {
+        return (
+        <div>
+          {this.state.myList.map(c=><div className='row'><Counter></Counter>{c.name}</div> )}  
+
+        </div>
         );
     }
 }
- 
+
 export default Counters;
