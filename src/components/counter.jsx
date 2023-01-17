@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-    state = { count:5 } 
+    state = { count:this.props.tedad } 
 
     handleDec=()=>{
         let a=this.state.count-1
