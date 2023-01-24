@@ -20,6 +20,9 @@ class Counter extends Component {
         let myClass=''
         this.state.count===0?myClass='bg-danger col-md-1 btn ': myClass='bg-light col-md-1 btn '
         return (<div>
+
+
+                    
                     <button onClick={this.handleInc} className='btn btn-success m-2'>افزایش</button>
                     <span className={myClass}>{this.state.count}</span>
                     <button onClick={this.handleDec} className='btn btn-warning' >کاهش</button>
