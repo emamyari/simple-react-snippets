@@ -15,7 +15,7 @@ class Counters extends Component {
     render() {
         return (
         <div>
-           {this.state.myList.map(item=><Counter tedad={item.q}></Counter>)}  
+           {this.state.myList.map(item=><Counter id={item.id} tedad={item.q} title={item.name}></Counter>)}  
 
         </div>
         );

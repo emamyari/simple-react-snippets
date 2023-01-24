@@ -22,11 +22,13 @@ class Counter extends Component {
         return (<div>
 
 
-                    
+                    <span className={myClass}> {this.props.id}    </span>
+
                     <button onClick={this.handleInc} className='btn btn-success m-2'>افزایش</button>
                     <span className={myClass}>{this.state.count}</span>
                     <button onClick={this.handleDec} className='btn btn-warning' >کاهش</button>
                     <button className='btn btn-danger'>حذف</button>
+                    <span className={myClass}> {this.props.title}    </span>
 
                 </div>);
     }
