@@ -12,10 +12,24 @@ class Counters extends Component {
                     {id:5,name:'ipad',q:8,color:'blue'},
                     ]
             }
+            
+handleDec=()=>{
+    let a=this.state.count-1
+    a<0?a++:a=a
+    this.setState({count:a})
+}
+
+handleInc=(c)=>{
+    let counters=this.state.myList.filter(i=>i!=c)
+    c.q=c.q+1
+    counters.push(c)
+    this.setState({myList:counters})
+    console.log()
+}
     render() {
         return (
         <div>
-           {this.state.myList.map(item=><Counter color={item.color} id={item.id} tedad={item.q} title={item.name}></Counter>)}  
+           {this.state.myList.map(item=><Counter color={item.color} id={item.id} tedad={item.q} title={item.name} hinc={this.handleInc} cntr={item}></Counter>)}  
 
         </div>
         );

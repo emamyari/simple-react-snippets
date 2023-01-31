@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-    state = { count:this.props.tedad } 
+    state = {} 
 
-    handleDec=()=>{
-        let a=this.state.count-1
-        a<0?a++:a=a
-        this.setState({count:a})
-    }
-
-    handleInc=()=>{
-        let a=this.state.count+1
-        a>10?a--:a=a
-        this.setState({count:a})
-    }
 
 
     render() { 
@@ -27,7 +16,7 @@ class Counter extends Component {
 
 
                     <span className={myClass}> {this.props.id}    </span>
-                    <button onClick={this.handleInc} className='btn btn-success m-2'>افزایش</button>
+                    <button onClick={()=>this.props.hinc(this.props.cntr)} className='btn btn-success m-2'>افزایش</button>
                     <span className={myClass}>{this.state.count}</span>
                     <button onClick={this.handleDec} className='btn btn-warning' >کاهش</button>
                     <button className='btn btn-danger'>حذف</button>
