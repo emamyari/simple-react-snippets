@@ -13,14 +13,22 @@ class Counters extends Component {
                     ]
             }
             
-handleDec=()=>{
-    let a=this.state.count-1
-    a<0?a++:a=a
-    this.setState({count:a})
+handleDec=(c)=>{
+    let pos=this.state.myList.indexOf(c)
+    let first=this.state.myList.slice(0,pos)
+    c.q=c.q-1
+    let last=this.state.myList.slice(pos+1)
+    let finalList=[...first,c,...last]
+    this.setState({myList:finalList})
+}
+handleDel=(c)=>{
+    let finalList=this.state.myList.filter(item=>item!=c)
+    this.setState({myList:finalList})
 }
 
-handleInc=(c)=>{
 
+handleInc=(c)=>{
+    
     let pos=this.state.myList.indexOf(c)
     let first=this.state.myList.slice(0,pos)
     c.q=c.q+1
@@ -32,7 +40,15 @@ handleInc=(c)=>{
     render() {
         return (
         <div>
-           {this.state.myList.map(item=><Counter color={item.color} id={item.id} tedad={item.q} title={item.name} hinc={this.handleInc} cntr={item}></Counter>)}  
+           {this.state.myList.map(item=><Counter 
+                                        color={item.color} 
+                                        id={item.id} 
+                                        tedad={item.q} 
+                                        title={item.name} 
+                                        hinc={this.handleInc} 
+                                        hdec={this.handleDec}
+                                        hdel={this.handleDel}
+                                        cntr={item}></Counter>)}  
 
         </div>
         );
