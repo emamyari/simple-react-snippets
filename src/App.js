@@ -19,7 +19,7 @@ class App extends Component {
   handleDec = (c) => {
     let pos = this.state.myList.indexOf(c)
     let first = this.state.myList.slice(0, pos)
-    c.q = c.q - 1
+    c.q = c.q<1? c.q:  c.q - 1
     let last = this.state.myList.slice(pos + 1)
     let finalList = [...first, c, ...last]
     this.setState({ myList: finalList })
