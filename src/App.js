@@ -6,13 +6,8 @@ import React, { Component } from 'react';
 
 class App extends Component {
   state = {
-    myList: [{ id: 1, name: 'iphone', q: 10, color: 'red' },
-    { id: 2, name: 'airPod', q: 5, color: 'yellow' },
-    { id: 3, name: 'TV', q: 100, color: 'pink' },
-    { id: 4, name: 'adaptor', q: 5, color: 'white' },
-    { id: 5, name: 'laptop', q: 2, color: 'black' },
-    { id: 6, name: 'watch', q: 9, color: 'black' },
-    { id: 7, name: 'ipad', q: 8, color: 'blue' },
+    myList: [
+     
     ]
   }
 
@@ -38,9 +33,25 @@ class App extends Component {
     this.setState({ myList: finalList })
 
   }
+  componentDidMount(){
+    fetch("http://192.168.1.41:7000/getData/")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+         myList:result
+        });
+      }
+    )
+
+
+
+  }
   render() {
+    console.log('render')
     return (
       <div>
+        <Nav tedad={this.state.myList.length}></Nav>
         <Nav tedad={this.state.myList.length}></Nav>
         <Counters 
           handleDel={this.handleDel}
