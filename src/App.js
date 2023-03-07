@@ -5,10 +5,27 @@ import Nav from './components/nav'
 import React, { Component } from 'react';
 import Table from './components/table';
 
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+
 class App extends Component {
   state = {
     myList: []
   }
+
+  options = {
+    chart: {
+      type: 'spline'
+    },
+    title: {
+      text: 'My chart'
+    },
+    series: [
+      {
+        data: [1, 2, 1, 4, 3, 6]
+      }
+    ]
+  };
 
   handleDec = (c) => {
     let pos = this.state.myList.indexOf(c)
@@ -51,15 +68,19 @@ class App extends Component {
     return (
       <div className='m-2'>
         <Nav tedad={this.state.myList.length}></Nav>
-
+       
         <div className=' row'>
+         <div className='col-md-7'>
           <Counters 
             handleDel={this.handleDel}
             handleInc={this.handleInc}
             handleDec={this.handleDec}
             counters={this.state.myList}
           ></Counters>
-        <Table size='col-md-6'  info={this.state.myList}></Table>
+          </div>
+          <div className='col-md-5'>
+        <HighchartsReact highcharts={Highcharts} options={this.options} />
+        </div>
 
         </div>
         <Table size='col-md-12' info={this.state.myList}></Table>
