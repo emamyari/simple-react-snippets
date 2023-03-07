@@ -5,7 +5,7 @@ class Counters extends Component {
 
     render() {
         return (
-        <div className='col-md-6'>
+        <div className='col-md-12'>
            {this.props.counters.map(item=><Counter 
                                         color={item.color} 
                                         id={item.id} 
