@@ -67,8 +67,14 @@ class App extends Component {
         (result) => {
           this.setState({
             options: {'xAxis':{'categories':result.cat}
-                     ,'series':result.series
+                     ,'series':{'colorByPoint': true,
+                                'data':result.data}
                      ,'chart':{'type':'column'}
+                     ,'plotOptions': {
+                      'series': {
+                          'color': 'green'
+                      }
+                  },
                     }
           });
           console.log(result)
