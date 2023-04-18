@@ -44,7 +44,6 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result)
           this.setState({
             myList: result
           });
@@ -67,8 +66,12 @@ class App extends Component {
       .then(
         (result) => {
           this.setState({
-            options: result
+            options: {'xAxis':{'categories':result.cat}
+                     ,'series':result.series
+                     ,'chart':{'type':'column'}
+                    }
           });
+          console.log(result)
         }
       )
 
@@ -76,14 +79,13 @@ class App extends Component {
 
   }
   render() {
-    console.log(this.state)
     return (
       <div className='m-2'>
         <Nav tedad={this.state.myList.length}></Nav>
        
         <div className=' row'>
           
-         <div className='col-md-6'>
+         <div className='col-md-12'>
           <Counters 
             handleDel={this.handleDel}
             handleInc={this.handleInc}
@@ -92,7 +94,7 @@ class App extends Component {
           ></Counters>
           </div>
 
-          <div className='col-md-6'>
+          <div className='col-md-12'>
         <HighchartsReact highcharts={Highcharts} options={this.state.options} />
         </div>
 
