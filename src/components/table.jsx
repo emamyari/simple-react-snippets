@@ -4,7 +4,7 @@ class Table extends Component {
     state = {}
     render() {
         return (<div className={this.props.size}>
-            <table class="table-dark  table-striped col-md-12">
+            <table className="table-dark  table-striped col-md-12">
                 <thead>
                     <tr>
                         <th>Id</th>

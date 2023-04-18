@@ -10,22 +10,12 @@ import HighchartsReact from 'highcharts-react-official';
 
 class App extends Component {
   state = {
-    myList: []
+    myList: [],
+    myAdd: [],
+    options : { }
   }
 
-  options = {
-    chart: {
-      type: 'spline'
-    },
-    title: {
-      text: 'My chart'
-    },
-    series: [
-      {
-        data: [1, 2, 1, 4, 3, 6]
-      }
-    ]
-  };
+  
 
   handleDec = (c) => {
     let pos = this.state.myList.indexOf(c)
@@ -54,8 +44,30 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (result) => {
+          console.log(result)
           this.setState({
             myList: result
+          });
+        }
+      )
+
+
+      fetch("http://192.168.1.41:7000/getaddress/")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            myAdd: result
+          });
+        }
+      )
+
+      fetch("http://192.168.1.41:7000/getChartData/")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            options: result
           });
         }
       )
@@ -64,13 +76,14 @@ class App extends Component {
 
   }
   render() {
-    console.log('render')
+    console.log(this.state)
     return (
       <div className='m-2'>
         <Nav tedad={this.state.myList.length}></Nav>
        
         <div className=' row'>
-         <div className='col-md-7'>
+          
+         <div className='col-md-6'>
           <Counters 
             handleDel={this.handleDel}
             handleInc={this.handleInc}
@@ -78,8 +91,9 @@ class App extends Component {
             counters={this.state.myList}
           ></Counters>
           </div>
-          <div className='col-md-5'>
-        <HighchartsReact highcharts={Highcharts} options={this.options} />
+
+          <div className='col-md-6'>
+        <HighchartsReact highcharts={Highcharts} options={this.state.options} />
         </div>
 
         </div>
